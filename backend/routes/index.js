@@ -37,7 +37,7 @@ router.post('/signin', celebrate({
 router.use('/users', auth, userRoutes); // Защищено авторизацией
 router.use('/cards', auth, cardRoutes); // Защищено авторизацией
 
-// router.use((req, res, next) => next(new NotFoundError('Страница не найдена')));
+router.use((req, res, next) => next(new NotFoundError('Страница не найдена')));
 
 /**
  * Если вызываем Роутер без пути, тогда в вызываемом файле пути указываются полностью.

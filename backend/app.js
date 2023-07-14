@@ -13,15 +13,15 @@ const { errors } = require('celebrate');
 const router = require('./routes'); // Файл index берется по-умолчанию, указывать не надо
 const { errorHandler } = require('./middlewares/error');
 
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 const app = express();
 
 // Для локалхоста. Подключение к серверу mongo + Обработка ошибок подключения.
-mongoose.connect('mongodb://localhost:27017/mestodb', { useNewUrlParser: true })
-  .then(() => { console.log('Успешное подключение к базе данных'); }) // Удалить при деплое?
-  .catch(() => { console.log('Ошибка подключения к базе данных'); });
+// mongoose.connect('mongodb://localhost:27017/mestodb', { useNewUrlParser: true })
+//   .then(() => { console.log('Успешное подключение к базе данных'); }) // Удалить при деплое?
+//   .catch(() => { console.log('Ошибка подключения к базе данных'); });
 // Для Облака:
-// mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { useNewUrlParser: true });
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { useNewUrlParser: true });
 
 // Заголовок Content-Security-Policy (CSP)
 // app.use((req, res, next) => {
