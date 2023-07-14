@@ -4,9 +4,10 @@
 const jwt = require('jsonwebtoken');
 
 const SECRET_KEY = '9Y5Qnt9sgmY0tuX3d2jQTz2LqewAIjD0uyfKSLZ5II0p01g4fVYwazgjuZRgzqsA'; // 64
-const EXPIRES_IN = '7d'; // Срок жизни токена
 
-const signToken = (payload) => jwt.sign(payload, SECRET_KEY, { expiresIn: EXPIRES_IN });
+const signToken = (payload) => jwt.sign(payload, SECRET_KEY, {
+  expiresIn: '7d', // Срок жизни токена: Сейчас - 7 дней.
+});
 // // return jwt.sign(payload, SECRET_KEY, { expiresIn: EXPIRES_IN });
 
 const checkToken = (token) => jwt.verify(token, SECRET_KEY);

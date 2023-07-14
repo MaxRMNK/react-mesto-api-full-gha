@@ -1,0 +1,138 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+@import url("./vendor/normalize.css");
+@import url("./vendor/fonts/inter.css");
+@import url("./blocks/page/page.css");
+
+@import url("./blocks/header/header.css");
+@import url("./blocks/header/__logo/header__logo.css");
+
+@import url("./blocks/content/content.css");
+
+@import url("./blocks/profile/profile.css");
+@import url("./blocks/profile/__avatar/profile__avatar.css");
+@import url("./blocks/profile/__info/profile__info.css");
+@import url("./blocks/profile/__text/profile__text.css");
+@import url("./blocks/profile/__name/profile__name.css");
+@import url("./blocks/profile/__job/profile__job.css");
+
+@import url("./blocks/profile/__avatar-button/profile__avatar-button.css");
+@import url("./blocks/profile/__edit-button/profile__edit-button.css");
+@import url("./blocks/profile/__add-button/profile__add-button.css");
+
+@import url("./blocks/elements/elements.css");
+@import url("./blocks/element/element.css");
+@import url("./blocks/element/__image/element__image.css");
+@import url("./blocks/element/__caption/element__caption.css");
+@import url("./blocks/element/__header/element__header.css");
+@import url("./blocks/element/__like/element__like-container.css");
+@import url("./blocks/element/__like/element__like.css");
+@import url("./blocks/element/__like/element__like-counter.css");
+@import url("./blocks/element/__like/_active/element__like_active.css");
+@import url("./blocks/element/__delete/element__delete.css");
+
+
+@import url("./blocks/footer/footer.css");
+@import url("./blocks/footer/__copyright/footer__copyright.css");
+
+@import url("./blocks/popup/popup.css");
+@import url("./blocks/popup/_image/popup_image.css");
+@import url("./blocks/popup/_opened/popup_opened.css");
+@import url("./blocks/popup/__container/popup__container.css");
+@import url("./blocks/popup/__container/_image/popup__container_image.css");
+@import url("./blocks/popup/__close-button/popup__close-button.css");
+@import url("./blocks/popup/__header/popup__header.css");
+@import url("./blocks/popup/__form/popup__form.css");
+@import url("./blocks/popup/__input/popup__input.css");
+@import url("./blocks/popup/__input/_type/popup__input_type_error.css");
+@import url("./blocks/popup/__error/popup__error.css");
+@import url("./blocks/popup/__error/_visible/popup__error_visible.css"); /* Нужен ли? */
+@import url("./blocks/popup/__button/popup__button.css");
+@import url("./blocks/popup/__button/_disabled/popup__button_disabled.css");
+@import url("./blocks/popup/__illustration/popup__illustration.css");
+@import url("./blocks/popup/__large-image/popup__large-image.css");
+@import url("./blocks/popup/__caption-image/popup__caption-image.css");
+@import url("./blocks/popup/__tooltip/popup__tooltip.css");
+@import url("./blocks/popup/__tooltip/_succeed/popup__tooltip_succeed.css");
+@import url("./blocks/popup/__tooltip/_fail/popup__tooltip_fail.css");
+
+/* react-mesto-auth */
+@import url("./blocks/auth/auth.css");
+@import url("./blocks/auth/__header/auth__header.css");
+@import url("./blocks/auth/__input/auth__input.css");
+@import url("./blocks/auth/__error/auth__error.css");
+@import url("./blocks/auth/__button/auth__button.css");
+@import url("./blocks/auth/__button/_disabled/auth__button_disabled.css");
+@import url("./blocks/auth/__reminder/auth__reminder.css");
+@import url("./blocks/auth/__caption/auth__caption.css");
+@import url("./blocks/auth/__link/auth__link.css");
+@import url("./blocks/auth/auth.css");
+
+
+
+@import url("./blocks/header/__nav-list/header__nav-list.css");
+@import url("./blocks/header/__nav-item/header__nav-item.css");
+@import url("./blocks/header/__nav-link/header__nav-link.css");
+
+
+/*
+Это пока не удаляю, хочу все же сделать бургер-меню для мобильной версии
+*/
+/*
+.header__close-button {
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-image: url("./images/icon-close.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center center;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  transition: opacity 0.1s linear 0s;
+}
+.header__close-button:hover {
+  opacity: 0.6;
+}
+
+.header__menu-button {
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-image: url("./images/icon-burg.svg");
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: center center;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  transition: opacity 0.1s linear 0s;
+}
+.header__menu-button:hover {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .header__close-button {
+    display: block;
+  }
+  .header__menu-button {
+    display: block;
+  }
+} */
+

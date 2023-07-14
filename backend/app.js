@@ -3,7 +3,7 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser'); // В.2.Для хранения Токена в куках
 // const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 
@@ -13,16 +13,15 @@ const { errors } = require('celebrate');
 const router = require('./routes'); // Файл index берется по-умолчанию, указывать не надо
 const { errorHandler } = require('./middlewares/error');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { useNewUrlParser: true });
-
-// Подключение к серверу mongo + Обработка ошибок подключения.
-// Спасибо за информацию, но нам вроде запретили пока создавать .env, т.к. он не пушится на гитхаб
-// mongoose.connect('mongodb://localhost:27017/mestodb', { useNewUrlParser: true })
-//   .then(() => { console.log('Успешное подключение к базе данных'); }) // Удалить при деплое?
-//   .catch(() => { console.log('Ошибка подключения к базе данных'); });
+// Для локалхоста. Подключение к серверу mongo + Обработка ошибок подключения.
+mongoose.connect('mongodb://localhost:27017/mestodb', { useNewUrlParser: true })
+  .then(() => { console.log('Успешное подключение к базе данных'); }) // Удалить при деплое?
+  .catch(() => { console.log('Ошибка подключения к базе данных'); });
+// Для Облака:
+// mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { useNewUrlParser: true });
 
 // Заголовок Content-Security-Policy (CSP)
 // app.use((req, res, next) => {
@@ -34,7 +33,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', { useNewUrlParser: true })
 app.use(express.json());
 // Чтобы данные в полученном объекте body могли быть любых типов, а не только строки и массивы:
 // app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser()); // Для получения токена из куков
+// app.use(cookieParser()); // Для получения токена из куков
 
 // Логгер запросов. Нужно подключить до всех обработчиков роутов
 // app.use(requestLogger);
