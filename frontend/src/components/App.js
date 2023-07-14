@@ -83,7 +83,7 @@ function App() {
     })
     .catch((err) => {
       setSuccessAuth(false);
-      console.log('Ошибка при регистрации:', err); // выведем ошибку в консоль
+      console.log('Ошибка при регистрации', err); // выведем ошибку в консоль
     })
     .finally(() => {
       setIsLoading(false);
