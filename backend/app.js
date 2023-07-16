@@ -65,39 +65,3 @@ app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`); // Приложение прослушивает порт ${PORT}
 });
-
-// -----------------------------
-// Проверка получения SECRET_KEY из переменной окружения.
-// app.use((req, res, next) => {
-//   console.log(process.env['SECRET_KEY_ENV']);
-//   next();
-// });
-
-// -----------------------------
-// app.use((req, res, next) => {
-//   // console.log('req.headers', req.headers);
-//   req.user = {
-//     _id: '64963b18735097caf8109597', // _id пользователя
-//   };
-//   next();
-// });
-
-// -----------------------------
-// // Подключение к серверу mongo + Обработка ошибок подключения.
-// // Если обработка ошибок не нужна, можно удалить then/catch.
-// // Если все данные берутся из БД, правильнее все app.use и app.listen перенести в then (?).
-// mongoose.connect('mongodb://localhost:27017/mestodb', { useNewUrlParser: true })
-//   // .then(() => { console.log('Успешное подключение к базе данных'); })
-//   // .catch((err) => { console.log('Ошибка подключения к базе данных', err); });
-//   .catch(() => { console.log('Ошибка подключения к базе данных'); });
-
-// -----------------------------
-// Когда у запроса принимается 2 параметра (req, res) - это контроллер или обработчик маршрута.
-// Если у обработчика принимается 3 параметра (req, res, next) - это милдвера (middleware).
-// Middleware - промежуточное ПО. Его задача что-то сделать и вызвать next (отдать дальше)
-// .
-// Error hendler, Error Middleware - используются все 4 параметра (req, res, next, error).
-// app.use((req, res, next, error) => {
-//   console.log(req.path);
-//   next();
-// });
