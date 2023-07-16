@@ -3,7 +3,7 @@
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
   'https://mesto.maxrmnk.nomoredomains.work',
-  'http://mesto.maxrmnk.nomoredomains.work',
+  // 'http://mesto.maxrmnk.nomoredomains.work',
   // 'http://localhost:3000',
 ];
 
