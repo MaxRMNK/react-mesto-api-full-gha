@@ -1,27 +1,31 @@
+// Мидлвара для CORS. Подключается в app.js вместо модуля CORS
+
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'localhost:3000',
+  'https://mesto.maxrmnk.nomoredomains.work',
+  'http://mesto.maxrmnk.nomoredomains.work',
+  // 'http://localhost:3000',
 ];
 
-const corsHandler = (req, res, next) => {
+const cors = (req, res, next) => {
   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin
-  // проверяем, что источник запроса есть среди разрешённых
-  if (allowedCors.includes(origin)) {
-    // устанавливаем заголовок, который разрешает браузеру запросы с этого источника
-    res.header('Access-Control-Allow-Origin', origin);
-    // // устанавливаем заголовок, который разрешает браузеру запросы из любого источника
-    // res.header('Access-Control-Allow-Origin', '*');
-  }
-
   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
 
   // Значение для заголовка Access-Control-Allow-Methods по умолчанию (разрешены все типы запросов)
   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
 
+  // проверяем, что источник запроса есть среди разрешённых
+  if (allowedCors.includes(origin)) {
+    // устанавливаем заголовок, который разрешает браузеру запросы с этого источника:
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+
   // сохраняем список заголовков исходного запроса
   const requestHeaders = req.headers['access-control-request-headers'];
+
+  // Разрешить отправку куков с разных источников
+  // res.header('Access-Control-Allow-Credentials', true);
+  // !Также нужно добавить в заголовки fetch фронтэнда: credentials: 'include'
 
   // Если это предварительный запрос, добавляем нужные заголовки
   if (method === 'OPTIONS') {
@@ -35,7 +39,7 @@ const corsHandler = (req, res, next) => {
     return res.end();
   }
 
-  next();
+  return next();
 };
 
-module.exports = { corsHandler };
+module.exports = cors;

@@ -69,6 +69,7 @@ const getUserById = (req, res, next) => {
 
 // Роут создания пользователя
 const createUser = (req, res, next) => {
+  console.log('Controllers/Users.js, createUser входящий запросЖ', req.body);
   const {
     name, about, avatar, email, password,
   } = req.body;

@@ -28,7 +28,7 @@ function Main ({
 
   const currentUser = React.useContext(CurrentUserContext);
 
-  // console.log(currentUser);
+  // console.log('Main currentUser:', currentUser.name);
 
   return (
     <main className="content">

@@ -1,12 +1,14 @@
+// export const BASE_URL = 'https://auth.nomoreparties.co';
+// export const BASE_URL = 'http://localhost:3001';
+export const BASE_URL = 'https://api.mesto.maxrmnk.nomoredomains.work';
+
 export const apiConfig = {
   // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-62',
-  baseUrl: 'http://localhost:3001',
-  // credentials: 'include',
+  baseUrl: BASE_URL,
+  // credentials: 'include', // Здесь и в других заголовках fetch нужно только для Куков
   headers: {
-    authorization: 'fe0e2550-7db8-46d0-ad13-df530dd3ed8c',
-    // authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGIwODI4NTg5YzlhOGMwNjQ3NjRiNzkiLCJpYXQiOjE2ODkyODkzNzYsImV4cCI6MTY4OTg5NDE3Nn0.TwYQm4QlBTTMr2I8gZpiq_-JDq7CpzJEd9AVl9OYOp0',
+    // authorization: 'fe0e2550-7db8-46d0-ad13-df530dd3ed8c',
+    'Authorization': '',
     'Content-Type': 'application/json'
-  }
+  },
 }
-
-

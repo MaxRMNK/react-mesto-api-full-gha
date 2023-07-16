@@ -1,20 +1,20 @@
 import { apiConfig } from "./utils";
-// Файл переименовал и экспорт/импорт тоже, вероятно он не обновился т.к. не было
-// других изменений. Сейчас должно быть все в порядке.
 
 /**
  * Вариант доработки:
  * Откорректировать методы здесь и их вызов в других компонентах, чтобы методы принимали не переменные, а объекты.
  * Например: "setUserInfo(name, about){..." => "setUserInfo({name, about}){..."
- * Зачем: Чтобы беспокоиться о соблюдении порядка передачи значений
- *
+ * Зачем: Чтобы не беспокоиться о соблюдении порядка передачи значений
  */
 class Api {
   constructor(options) {
+    this._token = localStorage.getItem('jwt');
+
     this._urlApi = options.baseUrl;
     this._headers = options.headers;
-    // this._token = options.headers['authorization'];
-    // this._contentType = options.headers['Content-Type'];
+    this._headers['Authorization'] = `Bearer ${this._token}`;
+     // Стало? В.Малий. 1:38:00
+    // this._token = options.headers['authorization']; // Было
   }
 
   _getResponseData(res) {
@@ -22,20 +22,14 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
     }
     return res.json();
-
-    // .then(res => {
-    //   if (res.ok) {
-    //     return res.json();
-    //   }
-    //   return Promise.reject(`Ошибка: ${res.status}`); // если ошибка, отклоняем промис
-    // });
   }
 
   // получить список всех карточек в виде массива (GET)
   getInitialCards() {
     return fetch(`${this._urlApi}/cards`, {
       //method: 'GET',
-      headers: {authorization: this._token},
+      // headers: {authorization: `Bearer ${this._token}`},
+      headers: this._headers,
     })
       .then(this._getResponseData);
   }
@@ -44,7 +38,8 @@ class Api {
   getUser() {
     return fetch(`${this._urlApi}/users/me`, {
       //method: 'GET',
-      headers: {authorization: this._token},
+      // headers: {authorization: `Bearer ${this._token}`},
+      headers: this._headers,
     })
       .then(this._getResponseData);
   }
@@ -58,8 +53,8 @@ class Api {
   setUserInfo(name, about){ //changeUserInfo
     return fetch(`${this._urlApi}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
       // headers: {authorization: this._token},
+      headers: this._headers,
       body: JSON.stringify({
         // name: 'Marie Skłodowska Curie',
         // about: 'Physicist and Chemist'

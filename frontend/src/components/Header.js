@@ -2,6 +2,8 @@ import { Routes, Route, Link } from "react-router-dom";
 
 function Header({ onSignOut, isLoggedIn, userData }) {
 
+  // console.log('Header userData:', userData);
+
   return (
     <header className="header">
 

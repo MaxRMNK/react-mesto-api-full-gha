@@ -62,12 +62,12 @@ function App() {
     if (token) {
       auth.checkToken(token)
       .then((res) => {
-        // console.log(res.data);
+        // console.log('App.js, checkAuth:', res);
         setLoggedIn(true);
-        setUserData(res.data);
+        setUserData(res);
       })
       .catch((err) => {
-        console.log(err); // выведем ошибку в консоль
+        console.log(err);
       })
     }
   }
@@ -98,24 +98,14 @@ function App() {
     .then((data) => {
       if(data.token) {
         localStorage.setItem('jwt', data.token);
-        // checkAuth(); // было. 97 строка + коммент ниже + коммент
-        /**
-         * Здесь избыточно проверять авторизацию, так как вы только что получили токен
-         * и можете считать его в данный момент валидным в рамках сессии авторизации.
-         * Здесь вместо проверки токена следует установить значение переменной isLoggedIn
-         * как true - ваша форма после этого будет работать корректно.
-         * --
-         * Тупанул. Почему-то решил, что сделав проверку checkAuth() получу сразу true,
-         * а скрипт не успев получить ответ идет дальше
-         */
-        setLoggedIn(true); // стало
         navigate('/', { replace: true });
+        setLoggedIn(true);
       }
     })
     .catch((err) => {
       setSuccessAuth(false);
       setInfoTooltipOpen(true);
-      console.log(err); // выведем ошибку в консоль
+      console.log(err);
     })
     .finally(() => {
       setIsLoading(false);
@@ -133,17 +123,21 @@ function App() {
 
   React.useEffect(() => {
     checkAuth();
+    console.log('checkAuth');
   }, []);
 
 
   // Загрузка с сервера данных карточек и профиля пользователя
   React.useEffect(() => {
     if(isLoggedIn) {
+      console.log('isLoggedIn', isLoggedIn);
       api
       .getAllPageData()
       .then((result) => {
+        navigate('/', { replace: true });
+
         setCurrentUser(result[0]); // apiUser
-        setCards(result[1]); // apiCards
+        setCards(result[1].reverse()); // apiCards
       })
       .catch((err) => {
         console.log(err); // выведем ошибку в консоль
@@ -235,7 +229,7 @@ function App() {
 
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id); // Было i._id
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api
