@@ -1,11 +1,12 @@
 // Мидлвара для CORS. Подключается в app.js вместо модуля CORS
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
-const allowedCors = [
-  'https://mesto.maxrmnk.nomoredomains.work',
-  // 'http://mesto.maxrmnk.nomoredomains.work',
-  // 'http://localhost:3000',
-];
+// const allowedCors = [
+//   // 'https://mesto.maxrmnk.nomoredomains.work',
+//   // 'http://mesto.maxrmnk.nomoredomains.work',
+//   'http://localhost:3000',
+// ];
+const { allowedCors } = require('../utils/utils');
 
 const cors = (req, res, next) => {
   const { origin } = req.headers; // Сохраняем источник запроса в переменную origin

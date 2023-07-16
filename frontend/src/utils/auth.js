@@ -1,6 +1,3 @@
-// export const BASE_URL = 'https://auth.nomoreparties.co';
-// export const BASE_URL = 'http://localhost:3001';
-
 import { BASE_URL } from "./utils"
 
 const getResponseData = (res) => {
@@ -44,12 +41,12 @@ export const login = (email, password) => {
 
 
 export const checkToken = (token) => {
-  console.log('Auth.js, checkToken', token);
+  // console.log('Auth.js, checkToken', token);
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
     // credentials: 'include',
   })

@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP 51.250.79.249
+IP 158.160.44.37
 
 Frontend https://mesto.maxrmnk.nomoredomains.work
 

@@ -59,12 +59,13 @@ function App() {
   // Проверка токена
   function checkAuth() {
     const token = localStorage.getItem('jwt');
+    // console.log('checkAuth token', token);
     if (token) {
       auth.checkToken(token)
       .then((res) => {
-        // console.log('App.js, checkAuth:', res);
         setLoggedIn(true);
         setUserData(res);
+        navigate('/', { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -97,9 +98,10 @@ function App() {
     auth.login(value.email, value.password)
     .then((data) => {
       if(data.token) {
-        localStorage.setItem('jwt', data.token);
-        navigate('/', { replace: true });
         setLoggedIn(true);
+        localStorage.setItem('jwt', data.token);
+
+        navigate('/', { replace: true });
       }
     })
     .catch((err) => {
@@ -123,34 +125,28 @@ function App() {
 
   React.useEffect(() => {
     checkAuth();
-    console.log('checkAuth');
+    // console.log('checkAuth useEffect');
   }, []);
 
 
   // Загрузка с сервера данных карточек и профиля пользователя
+  // Без хардкорной передачи токена здесь в getAllPageData и далее по цепочке,
+  // не обновлялась информация на странице после входа.
   React.useEffect(() => {
     if(isLoggedIn) {
-      console.log('isLoggedIn', isLoggedIn);
-      api
-      .getAllPageData()
-      .then((result) => {
-        navigate('/', { replace: true });
+      const token = localStorage.getItem('jwt');
 
+      api
+      .getAllPageData(token)
+      .then((result) => {
         setCurrentUser(result[0]); // apiUser
         setCards(result[1].reverse()); // apiCards
+
+        // navigate('/', { replace: true });
       })
       .catch((err) => {
         console.log(err); // выведем ошибку в консоль
       });
-
-      // // Это нужно для того, чтобы при отправке данных формы "вход" переадресация осуществлялась корректно.
-      // // Без этой строки, переадресация на страницу с карточками происходит только после повторной отправки формы.
-      // // Как решить проблему по-другому не знаю.
-      // navigate('/', { replace: true });
-      /**
-       * Это происходит из за того, что вы после авторизации не меняете значение переменной isLoggedIn,
-       * а вызываете проверку токена, которая по сути избыточна сразу после авторизации. См. комментарий на 97 строке.
-       */
     }
   }, [isLoggedIn]);
   // Второй аргумент - [] - массив зависимостей. Если значения прописанные в этом массиве изменились,
