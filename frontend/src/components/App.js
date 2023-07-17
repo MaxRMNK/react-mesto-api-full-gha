@@ -100,6 +100,7 @@ function App() {
       if(data.token) {
         setLoggedIn(true);
         localStorage.setItem('jwt', data.token);
+        // api.setToken(data.token);
 
         navigate('/', { replace: true });
       }
@@ -132,10 +133,11 @@ function App() {
   // не обновлялась информация на странице после входа.
   React.useEffect(() => {
     if(isLoggedIn) {
-      const token = localStorage.getItem('jwt');
+      // const token = localStorage.getItem('jwt');
+      api.setToken();
 
       api
-      .getAllPageData(token)
+      .getAllPageData()
       .then((result) => {
         setCurrentUser(result[0]); // apiUser
         setCards(result[1].reverse()); // apiCards

@@ -13,11 +13,11 @@
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
 // Для мидлвары cors.js или модуля cors
-// const allowedCors = [
-//   'https://mesto.maxrmnk.nomoredomains.work',
-//   // 'http://mesto.maxrmnk.nomoredomains.work',
-//   // 'http://localhost:3000',
-// ];
+const allowedCors = [
+  'https://mesto.maxrmnk.nomoredomains.work',
+  // 'http://mesto.maxrmnk.nomoredomains.work',
+  // 'http://localhost:3000',
+];
 
 const {
   // // Локалхост
@@ -29,7 +29,7 @@ const {
 } = process.env;
 
 module.exports = {
-  // allowedCors,
+  allowedCors,
   MONGO_DB,
   PORT,
 };
