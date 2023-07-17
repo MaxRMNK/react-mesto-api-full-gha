@@ -13,6 +13,7 @@ class Api {
     this._urlApi = options.baseUrl;
     this._headers = options.headers;
     // this._headers['Authorization'] = `Bearer ${this._token}`;
+
      // Стало? В.Малий. 1:38:00
     // this._token = options.headers['authorization']; // Было
   }
@@ -28,7 +29,7 @@ class Api {
   getInitialCards(token) {
     return fetch(`${this._urlApi}/cards`, {
       //method: 'GET',
-      headers: { ...this._headers, Authorization: `Bearer ${token}`},
+      headers: { ...this._headers, 'Authorization': `Bearer ${token}`},
     })
       .then(this._getResponseData);
   }
@@ -37,7 +38,7 @@ class Api {
   getUser(token) {
     return fetch(`${this._urlApi}/users/me`, {
       //method: 'GET',
-      headers: { ...this._headers, Authorization: `Bearer ${token}`},
+      headers: { ...this._headers, 'Authorization': `Bearer ${token}`},
     })
       .then(this._getResponseData);
   }
@@ -51,7 +52,7 @@ class Api {
   setUserInfo(name, about){ //changeUserInfo
     return fetch(`${this._urlApi}/users/me`, {
       method: 'PATCH',
-      headers: { ...this._headers, Authorization: `Bearer ${this._token}`},
+      headers: { ...this._headers, 'Authorization': `Bearer ${this._token}`},
       body: JSON.stringify({
         // name: 'Marie Skłodowska Curie',
         // about: 'Physicist and Chemist'
@@ -66,7 +67,7 @@ class Api {
   setAvatar(avatar){
     return fetch(`${this._urlApi}/users/me/avatar`, { // this._urlApi + '/users/me/avatar'
       method: 'PATCH',
-      headers: { ...this._headers, Authorization: `Bearer ${this._token}`},
+      headers: { ...this._headers, 'Authorization': `Bearer ${this._token}`},
       body: JSON.stringify({ avatar: avatar })
     })
       .then(this._getResponseData);
@@ -76,7 +77,7 @@ class Api {
   addCardInDb(data){
     return fetch(`${this._urlApi}/cards`, {
       method: 'POST',
-      headers: { ...this._headers, Authorization: `Bearer ${this._token}`},
+      headers: { ...this._headers, 'Authorization': `Bearer ${this._token}`},
       body: JSON.stringify(data)
     })
       .then(this._getResponseData);
@@ -86,7 +87,7 @@ class Api {
   deleteCard(id){
     return fetch(`${this._urlApi}/cards/${id}`, {
       method: 'DELETE',
-      headers: { ...this._headers, Authorization: `Bearer ${this._token}`},
+      headers: { ...this._headers, 'Authorization': `Bearer ${this._token}`},
     })
       .then(this._getResponseData);
   }
@@ -97,13 +98,13 @@ class Api {
     if (isLiked) {
       return fetch(`${this._urlApi}/cards/${id}/likes`, {
         method: 'PUT',
-        headers: { ...this._headers, Authorization: `Bearer ${this._token}`},
+        headers: { ...this._headers, 'Authorization': `Bearer ${this._token}`},
       })
         .then(this._getResponseData);
     } else {
       return fetch(`${this._urlApi}/cards/${id}/likes`, {
         method: 'DELETE',
-        headers: { ...this._headers, Authorization: `Bearer ${this._token}`},
+        headers: { ...this._headers, 'Authorization': `Bearer ${this._token}`},
       })
         .then(this._getResponseData);
     }

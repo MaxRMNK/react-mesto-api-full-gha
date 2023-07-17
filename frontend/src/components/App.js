@@ -122,12 +122,10 @@ function App() {
     navigate('/sign-up', { replace: true });
   }
 
-
   React.useEffect(() => {
     checkAuth();
     // console.log('checkAuth useEffect');
   }, []);
-
 
   // Загрузка с сервера данных карточек и профиля пользователя
   // Без хардкорной передачи токена здесь в getAllPageData и далее по цепочке,

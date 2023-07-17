@@ -7,8 +7,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 // const cookieParser = require('cookie-parser'); // В.2.Для хранения Токена в куках
 const { errors } = require('celebrate');
-const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
 
 // const cors = require('cors'); // CORS через модуль
 const cors = require('./middlewares/cors'); // CORS через мидлвару
@@ -20,13 +20,13 @@ const { requestLogger, errorLogger } = require('./middlewares/logger'); // Ло�
 const { MONGO_DB, PORT } = require('./utils/utils'); // Для CORS модуля достать allowedCors
 
 const app = express();
+
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // за 15 минут
   max: 100, // можно совершить максимум 100 запросов с одного IP
 });
-
-app.use(helmet());
 app.use(limiter); // подключаем rate-limiter
+app.use(helmet());
 
 // Подключение к mongo + Обработка ошибок подключения.
 mongoose.connect(MONGO_DB, { useNewUrlParser: true })
