@@ -13,11 +13,11 @@ const cardRoutes = require('./cards');
 const NotFoundError = require('../errors/not-found-err'); // 404 Not Found
 
 // Удалить после проверки.
-router.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('Сервер сейчас упадёт');
-  }, 0);
-});
+// router.get('/crash-test', () => {
+//   setTimeout(() => {
+//     throw new Error('Сервер сейчас упадёт');
+//   }, 0);
+// });
 
 // Создал эти роуты здесь, а не в app.js (как сказано в ТЗ)
 // чтобы не выносить туда еще и код обработки 404 страницы

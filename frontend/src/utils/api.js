@@ -26,7 +26,7 @@ class Api {
     return res.json();
   }
 
-  setToken() {
+  setToken() { // (token)
     // this._headers['authorization'] = `Bearer ${token}`;
     this._token = localStorage.getItem('jwt');
     this._headers['authorization'] = `Bearer ${this._token}`;
