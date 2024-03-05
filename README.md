@@ -11,10 +11,10 @@
 Frontend
 Backend
 
->>>
+||
 Frontend https://mesto.maxrmnk.nomoredomains.work  
 Backend https://api.mesto.maxrmnk.nomoredomains.work
-<<<
+||
 
 ## Описание
 Проект выполнен в качестве проверочного задания в рамках учебной программы **[ЯндексПрактикум «Веб-разработчик»](https://practicum.yandex.ru/web/)**, курс 6 (спринт 8), **проектная работа #15**.
