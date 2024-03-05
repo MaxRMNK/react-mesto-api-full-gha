@@ -1,7 +1,7 @@
 {
   "name": "express-mesto-gha",
   "version": "1.0.0",
-  "description": "Проект Mesto фронтенд + бэкенд",
+  "description": "Проект Mesto: деплой бэкенда",
   "main": "app.js",
   "keywords": [],
   "author": "MaxRMNK",
@@ -28,7 +28,7 @@
     "express-winston": "^4.2.0",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.4.0",
+    "mongoose": "^7.6.8",
     "validator": "^13.9.0",
     "winston": "^3.10.0"
   }

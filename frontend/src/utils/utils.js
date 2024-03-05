@@ -1,6 +1,6 @@
 // export const BASE_URL = 'https://auth.nomoreparties.co'; // ПР10-12
-// export const BASE_URL = 'http://localhost:3001';
-export const BASE_URL = 'https://api.mesto.maxrmnk.nomoredomains.work';
+export const BASE_URL = 'http://localhost:3001';
+// export const BASE_URL = 'https://api.mesto.maxrmnk.nomoredomains.work';
 
 export const apiConfig = {
   // baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-62',

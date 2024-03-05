@@ -47,7 +47,7 @@ app.use(express.json());
 // app.use(cors(corsOptions));
 app.use(cors);
 
-app.use(requestLogger); // Логгер запросов. Gодключать до всех обработчиков роутов
+app.use(requestLogger); // Логгер запросов. Подключать до всех обработчиков роутов
 app.use(router);
 app.use(errorLogger); // Логгер ошибок. Подключать после обработчиков роутов и до ошибок
 

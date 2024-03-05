@@ -14,18 +14,18 @@
 // Массив доменов, с которых разрешены кросс-доменные запросы
 // Для мидлвары cors.js или модуля cors
 const allowedCors = [
-  'https://mesto.maxrmnk.nomoredomains.work',
+  // 'https://mesto.maxrmnk.nomoredomains.work',
   // 'http://mesto.maxrmnk.nomoredomains.work',
-  // 'http://localhost:3000',
+  'http://localhost:3000',
 ];
 
 const {
-  // // Локалхост
-  // MONGO_DB = 'mongodb://localhost:27017/mestodb',
-  // PORT = 3001,
+  // Локалхост
+  MONGO_DB = 'mongodb://localhost:27017/mestodb',
+  PORT = 3001,
   // Виртуальная машина
-  MONGO_DB = 'mongodb://127.0.0.1:27017/mestodb',
-  PORT = 3000,
+  // MONGO_DB = 'mongodb://127.0.0.1:27017/mestodb',
+  // PORT = 3000,
 } = process.env;
 
 module.exports = {

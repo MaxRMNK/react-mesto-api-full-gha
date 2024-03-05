@@ -37,9 +37,12 @@ const cors = (req, res, next) => {
     res.header('Access-Control-Allow-Headers', requestHeaders);
 
     // завершаем обработку запроса и возвращаем результат клиенту
-    return res.end();
+    // https://practicum.yandex.ru/trainer/web/lesson/a8eda0ee-5320-497e-8c40-7d836c4a9c69/
+    // res.end();
+    return res.end(); // по учебнику
   }
 
+  // next(); // по учебнику
   return next();
 };
 
