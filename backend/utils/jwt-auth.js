@@ -3,10 +3,10 @@
 // см. вебинар: Наталья Дружинина, cohort_61, 2023-06-02.
 const jwt = require('jsonwebtoken');
 
-// const SECRET_KEY = '9Y5Qnt9sgmY0tuX3d2jQTz2LqewAIjD0uyfKSLZ5II0p01g4fVYwazgjuZRgzqsA'; // 64
+// const SECRET_KEY = 'X3d2jQTz2LqewAIjD0uyfKSLZ5II0p01g4fVYwazgjuZRgzqsA9Y5Qnt9sgmY0tu'; // 64
 
 const { NODE_ENV, SECRET_KEY_ENV } = process.env;
-const SECRET_KEY_DEV = 'dev-secret-key'; // вставьте сюда секретный ключ для разработки из кода
+const SECRET_KEY_DEV = 'dev-secret-key'; // Секретный ключ для "режима разработки"
 const SECRET_KEY = NODE_ENV === 'production' ? SECRET_KEY_ENV : SECRET_KEY_DEV;
 
 const signToken = (payload) => jwt.sign(payload, SECRET_KEY, {

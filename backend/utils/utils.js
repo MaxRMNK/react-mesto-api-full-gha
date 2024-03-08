@@ -16,20 +16,28 @@
 const allowedCors = [
   'https://mesto.maxrmnk.nomoredomains.work',
   'http://mesto.maxrmnk.nomoredomains.work',
+  'https://localhost:3000',
   'http://localhost:3000',
 ];
 
-const {
-  // Локалхост
-  MONGO_DB = 'mongodb://localhost:27017/mestodb',
-  PORT = 3001,
-  // Виртуальная машина
-  // MONGO_DB = 'mongodb://127.0.0.1:27017/mestodb',
-  // PORT = 3000,
-} = process.env;
+// Не нужно, извлечение переменных перенесено в app.js, а определение в .env
+// ---
+// Порт текущего приложения и адрес для подключения к БД.
+// const {
+//   // Для деплоя:
+//   MONGO_DB,
+//   PORT,
+//   // Если в .env нет переменных окружения - устанавливаются значения по умолчанию.
+//   // Для тестирования на Локалхост:
+//   // MONGO_DB = 'mongodb://localhost:27017/mestodb',
+//   // PORT = 3001,
+//   // Для тестирования на виртуальной машине Яндекс.Облако
+//   // MONGO_DB = 'mongodb://127.0.0.1:27017/mestodb',
+//   // PORT = 3000,
+// } = process.env;
 
 module.exports = {
   allowedCors,
-  MONGO_DB,
-  PORT,
+  // MONGO_DB,
+  // PORT,
 };

@@ -17,7 +17,9 @@ const router = require('./routes'); // Файл index берется по-умо
 const { errorHandler } = require('./middlewares/error'); // Моя обработка ошибок
 const { requestLogger, errorLogger } = require('./middlewares/logger'); // Логгеры
 
-const { MONGO_DB, PORT } = require('./utils/utils'); // Для CORS модуля достать allowedCors
+// Старый вариант, сейчас переменные MONGO_DB и PORT вынесены в .env
+// const { MONGO_DB, PORT } = require('./utils/utils'); // Для CORS модуля достать и allowedCors
+const { MONGO_DB, PORT } = process.env;
 
 const app = express();
 
@@ -54,6 +56,8 @@ app.use(errorLogger); // Логгер ошибок. Подключать пос�
 app.use(errors()); // Обработчик ошибок celebrate
 app.use(errorHandler); // Централизованный обработчик ошибок
 
+// Запуск HTTP-сервера на заданном номере порта, для обработки поступающих к серверу запросов
+// Выводит лог как только сервер будет запущен
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`); // Приложение прослушивает порт ${PORT}
