@@ -37,9 +37,11 @@
 
 ### Бэкенд - `backend/`
   + Подключен express-rate-limit для ограничения количества запросов и защиты от DoS-атак.
-      https://www.npmjs.com/package/express-rate-limit
+
+    https://www.npmjs.com/package/express-rate-limit
   + Подключен helmet для защиты приложения от веб-уязвимостей, с помощью функций промежуточной обработки, обеспечивающих настройку заголовков HTTP.
-      https://expressjs.com/ru/advanced/best-practice-security.html.
+
+    https://expressjs.com/ru/advanced/best-practice-security.html.
   + Настроен сбор логов с помощью библиотеки `winston` и мидлвэр `express-winston` - подключение и настройка в мидлвэр `logger.js`.
   + Написана мидлвэр `cors.js` и настроена обработка кросс-доменных запросов (CORS). Адреса доменов с которых разрешены запросы хранятся в `backend/utils/utils.js`. - Это необходимо т.к. подразумевается, что бэкенд часть приложения находится на отдельном домене или поддомене основного сайта.
 
