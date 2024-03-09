@@ -17,20 +17,23 @@ const router = require('./routes'); // Файл index берется по-умо
 const { errorHandler } = require('./middlewares/error'); // Моя обработка ошибок
 const { requestLogger, errorLogger } = require('./middlewares/logger'); // Логгеры
 
-// Старый вариант, сейчас переменные MONGO_DB и PORT вынесены в .env
+// Старый вариант. Сейчас переменные MONGO_DB и PORT вынесены в .env:
 // const { MONGO_DB, PORT } = require('./utils/utils'); // Для CORS модуля достать и allowedCors
-const { MONGO_DB, PORT } = process.env;
+
+// Новый вариант. Если в .env нет переменных с данными, будут заданы значения по умолчанию:
+const { MONGO_DB = 'mongodb://localhost:27017/mestodb', PORT = 3001 } = process.env;
+// const { MONGO_DB, PORT } = process.env;
 
 const app = express();
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // за 15 минут
   max: 100, // можно совершить максимум 100 запросов с одного IP
+  windowMs: 15 * 60 * 1000, // за 15 минут
 });
 app.use(limiter); // подключаем rate-limiter
 app.use(helmet());
 
-// Подключение к mongo + Обработка ошибок подключения.
+// Подключение к mongodb + Обработка ошибок подключения.
 mongoose.connect(MONGO_DB, { useNewUrlParser: true })
   .then(() => { console.log('Успешное подключение к базе данных'); })
   .catch(() => { console.log('Ошибка подключения к базе данных'); });
