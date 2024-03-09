@@ -21,8 +21,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger'); // Ло�
 // const { MONGO_DB, PORT } = require('./utils/utils'); // Для CORS модуля достать и allowedCors
 
 // Новый вариант. Если в .env нет переменных с данными, будут заданы значения по умолчанию:
-const { MONGO_DB = 'mongodb://localhost:27017/mestodb', PORT = 3001 } = process.env;
-// const { MONGO_DB, PORT } = process.env;
+// const { MONGO_DB = 'mongodb://localhost:27017/mestodb', PORT = 3001 } = process.env;
+const { MONGO_DB, PORT } = process.env;
 
 const app = express();
 
