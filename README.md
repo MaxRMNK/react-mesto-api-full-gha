@@ -6,11 +6,13 @@
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями. Бэкенд расположен в директории `backend/`, а фронтенд - в `frontend/`.
 
 ## Ссылки на проект
-  Frontend https://mesto.maxrmnk.nomoredomains.work
 
-  Backend https://api.mesto.maxrmnk.nomoredomains.work
+IP 51.250.79.174
 
-  IP 51.250.79.174
+Frontend https://mesto.maxrmnk.nomoredomains.work
+
+Backend https://api.mesto.maxrmnk.nomoredomains.work
+
 
 ## Описание
 Проект выполнен в качестве проверочного задания в рамках учебной программы **[ЯндексПрактикум «Веб-разработчик»](https://practicum.yandex.ru/web/)**, курс 6 (спринт 8), **проектная работа #15**.
